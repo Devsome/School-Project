@@ -1,0 +1,8 @@
+.vagrant
+node_modules
+composer.phar
+npm-debug.log
+.idea
+.idea/*
+www/.DS_Store
+.DS_Store

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Simple node.js and socket.io school project" />
+	<meta name="author" content="Alexander Frank" />
+	<meta name="publisher" content="Alexander Frank" />
+	
+	<meta name="robots" content="index, nofollow" />
+	<meta name="MobileOptimized" content="320" />
+	<meta name="HandheldFriendly" content="True" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+	
+	<title>Chat - Schulprojekt</title>
+	
+
+	<link href="css/main.css" rel="stylesheet" />
+	<link href="css/bootstrap.min.css" rel="stylesheet" />
+	<link href="css/font-awesome.min.css" rel="stylesheet" />
+
+	<link href="images/icon.png" rel="shortcut icon" />
+	<link href="images/icon.png" rel="icon" />
+
+</head>
+<body>
+
+
+
+	
+<div id="gameAreaWrapper" class="container hidden full-height">
+
+	<div class="col-md-8 full-height">
+		<div class="chatbox center-block" id="chatbox">
+			<div id="chatList" class="chat-list"></div>
+			<input id="chatInput" type="text" class="chat-input" placeholder="Schreibe hier..." />
+		</div>
+	</div>
+	<div class="col-md-4">
+
+		<div class="well">
+			<h3 class="no-mt">Räume betreten</h3>
+			<div id="chatRooms" class="list-group">
+				<a href="#hauptraum" class="list-group-item">
+					<i class="fa fa-users"></i> Hauptchannel
+					<span class="pull-right text-muted small"><em><b class="hauptchannel"></b> -</em></span>
+				</a>
+				<a href="" class="list-group-item">
+					<i class="fa fa-lock"></i> Privat
+					<span class="pull-right text-muted small"><em><b class="privat"></b> -</em></span>
+				</a>
+			</div>
+			<div class="form-group">
+				<button id="raumErstellen" class="btn btn-primary btn-block">Erstelle/Betrete einen Raum</button>
+			</div>
+
+			<div id="createRaum" class="container hidden" style="margin-top:30px">
+				<div class="col-md-3">
+					<div class="panel panel-default">
+						<div class="panel-heading"><h3 class="panel-title"><strong>Raum Einstellungen </strong></h3></div>
+						<div class="panel-body">
+							<form role="form">
+								<div class="form-group">
+									<label for="createChannelRaum">Raumname</label>
+									<input type="text" class="form-control" id="createChannelRaum" placeholder="Raum 001">
+								</div>
+								<div class="form-group">
+									<label for="createChannelPassword">Password</label>
+									<input type="password" class="form-control" id="createChannelPassword" placeholder="Password">
+								</div>
+								<button type="button" id="btnRaumErstellen" class="btn btn-sm btn-danger pull-left">Erstellen</button>
+								<button type="button" id="btnRaumBetreten" class="btn btn-sm btn-danger pull-right">Betreten</button>
+								<div class="input-error3 alert alert-danger" role="alert">
+									<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+									<span class="sr-only">Error:</span>
+									Raumname existiert bereits
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+
+</div>
+
+<div id="startMenu" class="container">
+	<div class="row">
+		<div class="col-md-4 col-md-offset-4">
+			<div class="well">
+				<div class="row">
+					<div class="col-md-12">
+						<h3 class="no-mt">Schulprojekt: Multichat</h3>
+						<hr>
+					</div>
+					<div class="col-md-12 form-group">
+						<input type="text" tabindex="0" autofocus placeholder="Dein Name..." id="playerNameInput" maxlength="12" autofocus />
+					</div>
+					<div class="col-md-12 form-group">
+						<button id="startButton" class="btn btn-primary btn-block">Betreten</button>
+					</div>
+					<div class="col-md-12 form-group">
+						<ul class="list-group">
+							<li class="list-group-item">Keine Beileidungen</li>
+							<li class="list-group-item">Mit <var>/help</var> bekommen Sie hilfe</li>
+							<li class="list-group-item">Es werden keine Daten gespeichert</li>
+						</ul>
+					</div>
+					<div class="col-md-12">
+						<div class="input-error alert alert-danger" role="alert">
+							<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+							<span class="sr-only">Error:</span>
+							Name enthält ungültige Zeichen
+						</div>
+						<div class="input-error1 alert alert-danger" role="alert">
+							<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+							<span class="sr-only">Error:</span>
+							Name ist schon vergeben
+						</div>
+						<div class="input-error2 alert alert-danger" role="alert">
+							<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+							<span class="sr-only">Error:</span>
+							Raum passwort ist ungültig
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/socket.io.js"></script>
+
+<!-- Player functions -->
+<script type="text/javascript" src="js/variables.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/chat.js"></script>
+
+</body>
+</html>
